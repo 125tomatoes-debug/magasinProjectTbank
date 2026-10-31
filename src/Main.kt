@@ -41,6 +41,15 @@ fun confermPerchase(customer: Customer){
     }
 }
 
+
+fun enterPromo(customer: Customer){
+    println("Ведите промокод")
+    val promo:String = readln()
+    if(customer.activatePromocode(promo) is PurchaceStatus.InvalidPromoCode){
+        println("Такого промокода нет")
+    }
+}
+
 fun main() {
 
     println("введите имя покупателя")
@@ -65,10 +74,11 @@ fun main() {
                 "4. Посмотреть корзину\n" +
                 "5. Оформить покупку\n" +
                 "6. Посмотреть баланс\n" +
+                "7. Ввести промокод\n" +
                 "0. Выход\n" +
                 "\n" +
                 "Выберите действие:")
-        var choice:Int = readln().toInt() % 7
+        var choice:Int = readln().toInt() % 8
         when(choice) {
             1 -> magasin.showinfo()
             2 -> addToBusket(customer)
@@ -76,6 +86,7 @@ fun main() {
             4 -> customer.showBusket()
             5 -> confermPerchase(customer)
             6 -> println("Баланс: ${customer.getBallance()} монет (указано выше)")
+            7 ->enterPromo(customer)
             0 -> exitShop = true
         }
 
