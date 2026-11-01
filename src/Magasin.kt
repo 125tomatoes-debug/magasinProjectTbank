@@ -1,4 +1,4 @@
-class Magasin {
+ object Magasin {
     private var sotckOfSwords = 3
     private var stockOfPoitions = 5
     private var stockOfShields = 2

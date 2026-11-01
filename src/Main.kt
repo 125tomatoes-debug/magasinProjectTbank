@@ -1,10 +1,10 @@
 
 
-val magasin:Magasin = Magasin()
+
 
 fun addToBusket(customer: Customer){
     println("выберите товары из ассортимента:")
-    magasin.showinfo()
+    Magasin.showinfo()
     var choice:Int = readln().toInt()
     println("выберите количество (1-10)")
     var amount:Int = readln().toInt()
@@ -19,7 +19,7 @@ fun addToBusket(customer: Customer){
 
 fun remooveFromBusket(customer: Customer){
     println("выберите товары из ассортимента:")
-    magasin.showinfo()
+    Magasin.showinfo()
     var choice:Int = readln().toInt()
     println("выберите количество (1-10)")
     var amount:Int = readln().toInt()
@@ -32,7 +32,7 @@ fun remooveFromBusket(customer: Customer){
 }
 
 fun confermPerchase(customer: Customer){
-    when(magasin.confermPerchase(customer)){
+    when(Magasin.confermPerchase(customer)){
         PurchaceStatus.Success -> println("покупка прошла успешно")
         PurchaceStatus.NotEnoughMoney -> println("недостаточно деняк")
         PurchaceStatus.EmptyCart -> print("")
@@ -80,7 +80,7 @@ fun main() {
                 "Выберите действие:")
         var choice:Int = readln().toInt() % 8
         when(choice) {
-            1 -> magasin.showinfo()
+            1 -> Magasin.showinfo()
             2 -> addToBusket(customer)
             3 -> remooveFromBusket(customer)
             4 -> customer.showBusket()
